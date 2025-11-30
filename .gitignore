@@ -1,0 +1,27 @@
+# Entornos virtuales (Lo más importante)
+venv/
+env/
+.env
+
+# Archivos de Python compilados
+__pycache__/
+*.py[cod]
+
+# Checkpoints de Jupyter Notebooks (archivos basura)
+.ipynb_checkpoints/
+
+# Datasets (si son pesados, es mejor no subirlos)
+dataset_consumo_electrico/
+
+# Modelos y Scalers (binarios pesados)
+*.h5
+*.pkl
+*.pt
+
+# Archivos de Office temporales (veo que tienes docs y ppts)
+~$*.docx
+~$*.pptx
+
+# Opcional: Si no quieres subir todas las imágenes generadas
+# *.png
+# *.csv
