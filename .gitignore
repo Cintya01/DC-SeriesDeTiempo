@@ -10,14 +10,6 @@ __pycache__/
 # Checkpoints de Jupyter Notebooks (archivos basura)
 .ipynb_checkpoints/
 
-# Datasets (si son pesados, es mejor no subirlos)
-dataset_consumo_electrico/
-
-# Modelos y Scalers (binarios pesados)
-*.h5
-*.pkl
-*.pt
-
 # Archivos de Office temporales (veo que tienes docs y ppts)
 ~$*.docx
 ~$*.pptx
@@ -25,3 +17,5 @@ dataset_consumo_electrico/
 # Opcional: Si no quieres subir todas las imágenes generadas
 # *.png
 # *.csv
+
+.DS_Store
