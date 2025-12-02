@@ -87,7 +87,8 @@ Five parameter combinations were evaluated. The optimal configuration was SARIMA
 
 For the LSTM model, the following feature engineering process was implemented: 23 features were created including cyclic encoding of hour of day, day of week, and month of year (encoded as sine and cosine to capture the circular nature of these temporal variables), categorical features such as day of month and weekend indicator, lag features with consumption values at lags 1, 2, 3, 6, 12, and 24 hours to capture immediate temporal dependencies, and moving statistics with mean and standard deviation in windows of 6, 12, and 24 hours to provide context on local trend and recent variability.
 
-Data was transformed to 3D sequence format $(samples, timesteps, features)$ with a lookback window of 24 hours, where each sample uses the previous 24 hours to predict current consumption. Min-Max normalization was applied to all features and the target, scaling values to the range [0, 1] to improve training convergence and prevent features with different scales from dominating learning.
+Data was transformed to 3D sequence format (samples, timesteps, features) with a lookback window of 24 hours, where each sample uses the previous 24 hours to predict current consumption. Min-Max normalization was applied to all features and the target, scaling values to the range [0, 1] to improve training convergence and prevent features with different scales from dominating learning.
+
 
 The implemented model architecture consists of: LSTM Layer 1 with 128 units and return\_sequences=True allowing information to flow to the next LSTM layer, Dropout 1 with rate 0.2 for regularization, LSTM Layer 2 with 64 units processing the output of the first layer, Dropout 2 with rate 0.2, Dense layer with 32 neurons and ReLU activation to capture nonlinear relationships, and Output layer with 1 linear neuron producing the consumption prediction. The model contains a total of 129,345 trainable parameters.
 
@@ -141,7 +142,10 @@ SARIMA was trained with the optimal configuration SARIMA$(2,0,2) \times (2,0,1,2
 
 SARIMA is represented by the equation:
 \begin{equation}
-(1 - \phi_1 B - \phi_2 B^2)(1 - \Phi_1 B^{24} - \Phi_2 B^{48})y_t = (1 + \theta_1 B + \theta_2 B^2)(1 + \Theta_1 B^{24}) \epsilon_t
+\begin{split}
+(1 - \phi_1 B - \phi_2 B^2)(1 - \Phi_1 B^{24} - \Phi_2 B^{48})y_t = \\
+(1 + \theta_1 B + \theta_2 B^2)(1 + \Theta_1 B^{24}) \epsilon_t
+\end{split}
 \label{eq:sarima}
 \end{equation}
 

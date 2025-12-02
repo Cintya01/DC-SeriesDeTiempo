@@ -142,7 +142,10 @@ SARIMA fue entrenado con la configuración óptima SARIMA$(2,0,2) \times (2,0,1,
 
 SARIMA se representa mediante la ecuación:
 \begin{equation}
-(1 - \phi_1 B - \phi_2 B^2)(1 - \Phi_1 B^{24} - \Phi_2 B^{48})y_t = (1 + \theta_1 B + \theta_2 B^2)(1 + \Theta_1 B^{24}) \epsilon_t
+\begin{split}
+(1 - \phi_1 B - \phi_2 B^2)(1 - \Phi_1 B^{24} - \Phi_2 B^{48})y_t = \\
+(1 + \theta_1 B + \theta_2 B^2)(1 + \Theta_1 B^{24}) \epsilon_t
+\end{split}
 \label{eq:sarima}
 \end{equation}
 
